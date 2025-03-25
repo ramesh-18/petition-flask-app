@@ -1,0 +1,90 @@
+<!-- templates/welcome.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI Petition Management System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f0f2f5;
+        }
+        .header {
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            color: white;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .about-section {
+            margin-bottom: 2rem;
+        }
+        .auth-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .btn-primary {
+            background: #6366f1;
+            color: white;
+        }
+        .btn-primary:hover {
+            background: #4f46e5;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>AI-Powered Petition Management System</h1>
+        <div class="auth-buttons">
+            <a href="{{ url_for('login') }}" class="btn btn-primary">Sign In</a>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="about-section">
+            <h2>About Our Petition System</h2>
+            <p>Welcome to the next-generation petition management platform powered by AI technology.</p>
+            
+            <h3>How It Works:</h3>
+            <ul>
+                <li>📝 Create digital petitions with ease</li>
+                <li>🔍 AI-powered categorization and analysis</li>
+                <li>📈 Real-time tracking of petition status</li>
+                <li>📤 Secure submission and storage</li>
+                <li>📲 Multi-device accessibility</li>
+            </ul>
+
+            <h3>Get Started:</h3>
+            <ol>
+                <li>Create your free account</li>
+                <li>Log in to your dashboard</li>
+                <li>Submit new petitions or track existing ones</li>
+                <li>Receive AI-powered insights and updates</li>
+            </ol>
+        </div>
+
+        <div class="auth-buttons">
+            <p>Don't have an account? 
+                <a href="/signup" class="btn btn-primary">Create Account</a>
+            </p>
+        </div>
+    </div>
+</body>
+</html>

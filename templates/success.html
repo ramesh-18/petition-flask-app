@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Petition Success</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background: #f0f8ff;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .success-container {
+            background: white;
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 0 25px rgba(0,0,0,0.1);
+            text-align: center;
+            max-width: 600px;
+            width: 90%;
+        }
+
+        .success-icon {
+            font-size: 4rem;
+            color: #4CAF50;
+            margin-bottom: 1.5rem;
+        }
+
+        .success-header {
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+        }
+
+        .petition-details {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+            text-align: left;
+        }
+
+        .detail-item {
+            margin: 1rem 0;
+            padding: 0.8rem;
+            background: white;
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .detail-label {
+            font-weight: 600;
+            color: #4a5568;
+            flex: 1;
+        }
+
+        .detail-value {
+            color: #2d3748;
+            flex: 2;
+            text-align: right;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .btn {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background: #4f46e5;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #4338ca;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: #6b7280;
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background: #4b5563;
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <div class="success-container">
+        <div class="success-icon">✅</div>
+        <h1 class="success-header">Petition Submitted Successfully!</h1>
+        
+        <div class="petition-details">
+            <div class="detail-item">
+                <span class="detail-label">Reference ID:</span>
+                <span class="detail-value">#{{ petition.id }}</span>
+            </div>
+            <div class="detail-item">
+                <span class="detail-label">Applicant Name:</span>
+                <span class="detail-value">{{ petition.applicant_name | escape }}</span>
+            </div>
+            <div class="detail-item">
+                <span class="detail-label">Petition Type:</span>
+                <span class="detail-value">{{ petition.petition_type | title | escape }}</span>
+            </div>
+            <div class="detail-item">
+                <span class="detail-label">Submission Date:</span>
+                <span class="detail-value">
+                    {% if petition.date_created %}
+                        {{ petition.date_created.strftime('%d %b %Y %I:%M %p') }}
+                    {% else %}
+                        Not Available
+                    {% endif %}
+                </span>
+            </div>
+        </div>
+
+        <div class="action-buttons">
+            <a href="{{ url_for('dashboard') }}" class="btn btn-primary">
+                📝 Submit Another Petition
+            </a>
+            <a href="{{ url_for('home') }}" class="btn btn-secondary">
+                🏠 Return to Home
+            </a>
+        </div>
+    </div>
+</body>
+</html>
